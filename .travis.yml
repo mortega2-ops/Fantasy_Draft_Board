@@ -6,6 +6,8 @@ services:
   - docker
 
 before_install:
+  - echo "DEBUG=True" >> .env
+  - echo "SECRET_KEY=$SECRET_KEY" >> .env
   - echo $DOCKER_PASSWORD | docker login --username $DOCKER_USERNAME --password-stdin
 
 before_script: pip install docker-compose
